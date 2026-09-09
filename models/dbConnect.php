@@ -1,16 +1,16 @@
 <?php
-$serverName="localhost";
-$userName="root";
-$password="";
-$db="campusconnect";
+define("DB_HOST", "localhost");
+define("DB_USER", "root");
+define("DB_PASS", "");
+define("DB_NAME", "campusconnect");
 
 function dbConnection()
 {
     global $serverName;
     global $userName;
-    global $password;
+    global $dbpassword;
     global $db;
-    $conn=mysqli_connect($serverName, $userName, $password, $db);
+    $conn=mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
     if($conn)
     {
