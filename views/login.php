@@ -4,6 +4,17 @@ require_once "../controllers/authCheck.php";
 
 startSession();
 
+if (isLoggedIn())
+{
+    $user = getLoggedUser();
+
+    if ($user != null && $user["status"] == "active")
+    {
+        header("Location: /campusconnect" . dashboardForRole($user["role"]));
+        exit();
+    }
+}
+
 $pageTitle = "Login";
 require_once "header.php";
 
@@ -45,6 +56,16 @@ require_once "header.php";
         if (isset($_GET["generalErr"]))
         {
             echo $_GET["generalErr"];
+        }
+        ?>
+
+    </span>
+
+    <span class="success">
+        <?php
+        if (isset($_GET["generalMessage"]))
+        {
+            echo $_GET["generalMessage"];
         }
         ?>
 

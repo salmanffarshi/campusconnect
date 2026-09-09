@@ -13,5 +13,22 @@ function findUserById($userId) {
     return mysqli_fetch_assoc($result); 
 }
 
+function emailExists($email){
+    $user = findUserByEmail($email);
+
+    if ($user == null)
+    {
+        return false;
+    }
+
+    return true;
+}
+
+function createStudent($name, $email, $passwordHash){
+    $sql = "INSERT INTO users (name, email, password, role, status) VALUES (?, ?, ?, 'student', 'active')";
+
+    return executeInsert($sql, "sss", $name, $email, $passwordHash);
+}
+
 
 ?>
