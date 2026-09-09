@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
     if ($hasErr)
     {
-        $url="Location: /campusconnect/views/login.php?email=".$email."&emailErr=".urlencode($emailErr)."&passErr=".urlencode($passErr);
+        $url="Location: /campusconnect/views/login.php?email=".urlencode($email)."&emailErr=".urlencode($emailErr)."&passErr=".urlencode($passErr);
         header($url);
         exit();
     }

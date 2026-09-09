@@ -8,7 +8,7 @@ require_once "../header.php";
 ?>
 
 <div class="card">
-    <h1>Welcome, <?php $user["name"]; ?></h1>
+    <h1>Welcome, <?php echo $user["name"]; ?></h1>
     <p class="muted">Administrator dashboard</p>
 </div>
 

@@ -148,6 +148,14 @@ textarea {
     margin-top: 4px;
 }
 
+.success {
+    display: block;
+    color: #1fcd39;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+
 .flash {
     padding: 12px 16px;
     border-radius: 4px;
