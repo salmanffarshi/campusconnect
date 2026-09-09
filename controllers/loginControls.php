@@ -4,6 +4,17 @@ require_once "../models/usersModel.php";
 
 startSession();
 
+if (isLoggedIn())
+{
+    $user = getLoggedUser();
+
+    if ($user != null && $user["status"] == "active")
+    {
+        header("Location: /campusconnect" . dashboardForRole($user["role"]));
+        exit();
+    }
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $email =trim($_POST["email"]);
@@ -61,7 +72,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     $_SESSION["role"] = $user["role"];
     $_SESSION["name"] = $user["name"];
 
-    header("Location: /campusconnect/views/admin/testDashboard.php");
+    header("Location: /campusconnect" . dashboardForRole($user["role"]));
+    exit();
 
 
 }
