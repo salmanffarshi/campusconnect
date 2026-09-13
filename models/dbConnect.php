@@ -1,4 +1,7 @@
 <?php
+
+date_default_timezone_set("Asia/Dhaka");
+
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASS", "");
@@ -88,6 +91,18 @@ function executeInsert($sql, $types = "", ...$values)
     mysqli_close($conn);
 
     return $insertId;
+}
+
+function fetchAllRows($result)
+{
+    $rows = array();
+
+    while ($row = mysqli_fetch_assoc($result))
+    {
+        $rows[] = $row;
+    }
+
+    return $rows;
 }
 
 

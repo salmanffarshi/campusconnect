@@ -40,7 +40,7 @@ if (isset($pageTitle) == false)
 
         <?php elseif ($menuUser["role"] == "organizer"): ?>             
 
-            <a href="/campusconnect/views/organizer/organizerDashboard.php">Dashboard</a>
+            <a href="/campusconnect/views/organizer/statistics.php">Statistics</a>
             <a href="/campusconnect/views/organizer/myEvents.php">My Events</a>
             <a href="/campusconnect/views/organizer/createEvent.php">Create Event</a>
             <a href="/campusconnect/views/account/profile.php">Profile</a>
@@ -48,7 +48,7 @@ if (isset($pageTitle) == false)
 
         <?php elseif ($menuUser["role"] == "admin"): ?>
 
-            <a href="/campusconnect/views/admin/adminDashboard.php">Dashboard</a>
+            <a href="/campusconnect/views/admin/statistics.php">Statistics</a>
             <a href="/campusconnect/views/admin/users.php">Users</a>
             <a href="/campusconnect/views/admin/eventApproval.php">Event Approval</a>
             <a href="/campusconnect/views/account/profile.php">Profile</a>
