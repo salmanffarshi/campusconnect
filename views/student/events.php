@@ -33,6 +33,6 @@ require_once "../messages.php";
 <p id="resultCount" class="muted"></p>
 <div id="eventList" class="event-grid"></div>
 
-<script src="/campus/views/student/js/events.js"></script>
+<script src="/campusconnect/views/student/js/events.js"></script>
 
 <?php require_once "../footer.php"; ?>

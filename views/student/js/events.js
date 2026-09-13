@@ -28,7 +28,7 @@ function loadEvents()
         showEvents(response.data);
     };
 
-    xhttp.open("GET", "/campus/controllers/eventSearchControls.php?search=" + encodeURIComponent(search) + "&categoryId=" + categoryId);
+    xhttp.open("GET", "/campusconnect/controllers/eventSearchControls.php?search=" + encodeURIComponent(search) + "&categoryId=" + categoryId);
     xhttp.send();
 }
 
@@ -55,7 +55,7 @@ function showEvents(events)
         html += "<p><strong>Date:</strong> " + event.event_date + "</p>";
         html += "<p><strong>Time:</strong> " + event.start_time.substring(0, 5) + " - " + event.end_time.substring(0, 5) + "</p>";
         html += "<p><strong>Venue:</strong> " + event.venue + "</p>";
-        html += "<a class='btn btn-small' style='margin-top: 10px;' href='/campus/views/student/eventDetails.php?eventId=" + event.event_id + "'>View Details</a>";
+        html += "<a class='btn btn-small' style='margin-top: 10px;' href='/campusconnect/views/student/eventDetails.php?eventId=" + event.event_id + "'>View Details</a>";
         html += "</div>";
     }
 
