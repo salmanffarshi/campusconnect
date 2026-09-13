@@ -46,4 +46,10 @@ function deactivateUser($userId){
 }
 
 
+
+function setUserStatus($userId, $status){
+    $sql = "UPDATE users SET status = ? WHERE user_id = ?";
+    return executeNonQuery($sql, "si", $status, $userId);
+}
+
 ?>
