@@ -98,6 +98,32 @@ function dashboardForRole($role)
     return "/views/login.php";
 }
 
+function sendJson($success, $message, $data = null)
+{
+    header("Content-Type: application/json");
+    echo json_encode(array("success" => $success, "message" => $message, "data" => $data));
+    exit();
+}
+
+function checkRoleAjax($role)
+{
+    startSession();
+
+    $user = null;
+
+    if (isLoggedIn())
+    {
+        $user = findUserById($_SESSION["userId"]);
+    }
+
+    if ($user == null || $user["status"] != "active" || $user["role"] != $role)
+    {
+        sendJson(false, "You are not allowed to do this. Please log in again.");
+    }
+
+    return $user;
+}
+
 
 
 
