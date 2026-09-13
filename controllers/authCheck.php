@@ -84,11 +84,11 @@ function dashboardForRole($role)
 {
     if ($role == "admin")
     {
-        return "/views/admin/adminDashboard.php";
+        return "/views/admin/statistics.php";
     }
     else if ($role == "organizer")
     {
-        return "/views/organizer/organizerDashboard.php";
+        return "/views/organizer/statistics.php";
     }
     else if ($role == "student")
     {
