@@ -52,4 +52,33 @@ function setUserStatus($userId, $status){
     return executeNonQuery($sql, "si", $status, $userId);
 }
 
+// Admin user list. $search matches the name or email. An empty $role means every role.
+function searchUsers($search, $role)
+{
+    $like = "%" . $search . "%";
+
+    if ($role == "")
+    {
+        $sql = "SELECT user_id, name, email, role, status, created_at FROM users
+                WHERE name LIKE ? OR email LIKE ?
+                ORDER BY created_at DESC";
+        $result = executeQuery($sql, "ss", $like, $like);
+    }
+    else
+    {
+        $sql = "SELECT user_id, name, email, role, status, created_at FROM users
+                WHERE (name LIKE ? OR email LIKE ?) AND role = ?
+                ORDER BY created_at DESC";
+        $result = executeQuery($sql, "sss", $like, $like, $role);
+    }
+
+    return fetchAllRows($result);
+}
+
+function createOrganizer($name, $email, $passwordHash)
+{
+    $sql = "INSERT INTO users (name, email, password, role, status) VALUES (?, ?, ?, 'organizer', 'active')";
+    return executeInsert($sql, "sss", $name, $email, $passwordHash);
+}
+
 ?>
