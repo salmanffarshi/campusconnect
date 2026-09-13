@@ -10,7 +10,7 @@ if (isLoggedIn())
 
     if ($user != null && $user["status"] == "active")
     {
-        header("Location: /campusconnect" . dashboardForRole($user["role"]));
+        header("Location: /campusconnect".dashboardForRole($user["role"]));
         exit();
     }
 }
