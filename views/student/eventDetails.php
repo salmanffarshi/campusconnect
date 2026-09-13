@@ -16,7 +16,7 @@ $event = findEventDetails($eventId);
 // Students can only see APPROVED events.
 if ($event == null || $event["status"] != "APPROVED")
 {
-    header("Location: /campus/views/student/events.php?generalErr=" . urlencode("That event is not available."));
+    header("Location: /campusconnect/views/student/events.php?generalErr=" . urlencode("That event is not available."));
     exit();
 }
 
@@ -37,7 +37,7 @@ require_once "../messages.php";
 ?>
 
 <div class="card">
-    <a href="/campus/views/student/events.php">&larr; Back to events</a>
+    <a href="/campusconnect/views/student/events.php">&larr; Back to events</a>
     <h1 style="margin-top: 12px;"><?php echo $event["title"]; ?></h1>
 
     <table class="details-table">
@@ -104,6 +104,6 @@ require_once "../messages.php";
     <?php endif; ?>
 </div>
 
-<script src="/campus/views/student/js/registration.js"></script>
+<script src="/campusconnect/views/student/js/registration.js"></script>
 
 <?php require_once "../footer.php"; ?>
